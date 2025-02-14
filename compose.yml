@@ -1,0 +1,21 @@
+# version: '3.5'
+
+services:
+  cm_recipe_grabber: &cm_recipe_grabber
+    build:
+      context: .
+      dockerfile: ./compose/Dockerfile
+    image: cuisine_mechanics_recipe_grabber
+    container_name: cuisine_mechanics_recipe_grabber
+    volumes:
+      - .:/app:z
+    networks:
+      - default
+    # ports:
+    #   - '8000:8000'
+    command: /start
+
+ 
+
+networks:
+  default:
